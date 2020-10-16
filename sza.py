@@ -15,10 +15,9 @@ def cal_sza(date, time, lat, lon):
     date1 = date
     date2 = datetime.date(2000, 1, 1)
     N = (date1 - date2).days
-    print(N)
     b = 2 * np.pi * (N - 1) / 365.25
     delta = 0.006918 - 0.399912 * np.cos(b) + 0.070257 * np.sin(b) - 0.006758 * np.cos(2*b) + 0.000907 * np.sin(2*b) - 0.002697 * np.cos(3*b) + 0.00148 * np.sin(3*b)
-    print(delta)
+
     # 计算时角
     true_time = time.hour + time.minute / 60 + time.second / 3600 + lon / 15   #真太阳时，以小时为单位
     t = (true_time - 12) * 15
